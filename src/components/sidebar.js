@@ -3,14 +3,30 @@ import axios from 'axios';
 
 function SideBar() {
 
-const [data, setData] = useState({})
+const [data, setData] = useState('')
 
 const getData = async() => {
-  const data = await axios.get('https://my.api.mockaroo.com/retail.json?key=b31b35d0')
-  console.log(data, 'this is data');
-  setData(data)
-  return data
+  const data = await axios.get('https://cors-anywhere.herokuapp.com/https://whiskyhunter.net/api/distilleries_info/')
+  const list = data.data.map((d,i) => {
+    let distillery = {
+      name: d.name,
+      country: d.country,
+      key: i
+    }
+    return distillery
+  })
+  console.log(list);
+  setData(list)
 }
+
+const display = data && data.map((d,i) => {
+  return (
+    <div className="project" key={i}>
+      <h4>{d.name}</h4>
+      {d.country}
+    </div>
+  )
+})
 
 useEffect(()=>{
 })
@@ -20,7 +36,7 @@ const getThis = () => {
 }
 
 const getThat = () => {
-  console.log(data);
+  console.log(data, 'this is state');
 }
 
   return (
@@ -28,6 +44,7 @@ const getThat = () => {
     <div className="sidebar">
       <button onClick={getThis}>This</button>
       <button onClick={getThat}>That</button>
+      {display}
       <ul>
         <li>This</li>
         <li>That</li>

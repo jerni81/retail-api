@@ -1,22 +1,27 @@
 .header {
   display: flex;
   justify-content: center;
-  position: relative;
+  width: 100%;
+  height: 20vh;
+  position: fixed;
   top: 0;
-
+  background-color: white;
   border: 1px solid black;
 
 }
 
 .main {
+  margin-top: 20vh;
   display: flex;
-  height: 75vh;
+  height: 70vh;
+  margin-bottom: 10vh;
 }
 
 .sidebar {
   width: 20vw;
   height: inherit;
   border: 1px solid black;
+  overflow: scroll;
 }
 
 .view {
@@ -33,7 +38,8 @@
   justify-content: center;
   width: 100%;
   height: 10vh;
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  background-color: white;
   border: 1px solid black;
 }
