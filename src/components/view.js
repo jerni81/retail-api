@@ -4,7 +4,6 @@ function View(props) {
 
   return (
     <div className="view">
-      <h1>This is View</h1>
       {props.shwList}
     </div>
   );

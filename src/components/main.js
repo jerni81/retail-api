@@ -28,41 +28,46 @@ function Main() {
         setScotland(scotland => [...scotland, sDistillery])
       }
     })
+    console.log('running');
     return list
   }
 
   useEffect(()=>{
-    shwList();
     if (go.go === true) {
       getData()
       setGO({go: false})
     }
-  })
+  }, [go.go])
 
   const shwList = () => {
-    if (show.show === 'japan') {
-      japan && japan.map((d,i) => {
-        return (
-          <div className="project" key={i}>
-            <h4>{d.name}</h4>
-            {d.country}
-          </div>
-        )
-      })
-    } if (show === 'scotland') {
-      scotland && scotland.map((d,i) => {
-        return (
-          <div className="project" key={i}>
-            <h4>{d.name}</h4>
-            {d.country}
-          </div>
-        )
-      })
-    } else {
+    if (show.show === '') {
       return (
         <div >
           <h4>Make a Choice</h4>
         </div>
+      )
+    }
+    if (show.show === 'japan') {
+      return (
+        japan && japan.map((d,i) => {
+          return (
+            <div className="project" key={i}>
+              <h4>{d.name}</h4>
+              {d.country}
+            </div>
+          )
+        })
+      )
+    } if (show.show === 'scotland') {
+      return (
+        scotland && scotland.map((d,i) => {
+          return (
+            <div className="project" key={i}>
+              <h4>{d.name}</h4>
+              {d.country}
+            </div>
+          )
+        })
       )
     }
   }
