@@ -1,19 +1,14 @@
-import React, { useState, useEffect }from 'react';
+import React from 'react';
 
 function SideBar(props) {
-
 
   return (
 
     <div className="sidebar">
-
-      <button onClick={props.getData}>That</button>
-      <ul>
-        <li>This</li>
-        <li>That</li>
-        <li>The Other</li>
-        <li>One More</li>
-      </ul>
+      <h4>Which country would you like your scotch from?</h4>
+      <button onClick={props.shwJapan}>Japan</button>
+      <br />
+      <button onClick={props.shwScotland}>Scotland</button>
     </div>
   );
 }

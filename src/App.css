@@ -18,6 +18,10 @@
 }
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 20vw;
   height: inherit;
   border: 1px solid black;
