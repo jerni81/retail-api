@@ -40,10 +40,17 @@ function Main() {
   }, [go.go])
 
   const shwList = () => {
-    if (show.show === '') {
+    if (japan === '') {
+      return (
+        <div>
+          <h4>Please wait for the API :)</h4>
+        </div>
+      )
+    }
+    if (japan !== '' && show.show === '') {
       return (
         <div >
-          <h4>Make a Choice</h4>
+          <h4>You may now make a choice</h4>
         </div>
       )
     }
@@ -51,7 +58,7 @@ function Main() {
       return (
         japan && japan.map((d,i) => {
           return (
-            <div className="project" key={i}>
+            <div className="listItem" key={i}>
               <h4>{d.name}</h4>
               {d.country}
             </div>
@@ -62,7 +69,7 @@ function Main() {
       return (
         scotland && scotland.map((d,i) => {
           return (
-            <div className="project" key={i}>
+            <div className="listItem" key={i}>
               <h4>{d.name}</h4>
               {d.country}
             </div>
