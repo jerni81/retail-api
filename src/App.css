@@ -21,7 +21,6 @@
   width: 20vw;
   height: inherit;
   border: 1px solid black;
-  overflow: scroll;
 }
 
 .view {
@@ -31,6 +30,7 @@
   width: 80vw;
   height: inherit;
   border: 1px solid black;
+  overflow: scroll;
 }
 
 .footer {
