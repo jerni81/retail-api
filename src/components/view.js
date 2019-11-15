@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 function View(props) {
-  const [selected, setSelected] = useState({ selected: false });
 
   return <div className="view">{props.shwList}</div>;
 }

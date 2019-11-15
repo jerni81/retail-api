@@ -70,7 +70,7 @@ function Main() {
         japan.map((d, i) => {
           return (
             <div
-              id={selected ? null : "selectedItem"}
+              id={selected ? null : "selectedItem" }
               className="listItem"
               key={i}
             >
@@ -111,11 +111,11 @@ function Main() {
 
   // Rendering selected items
   const shwSelected = () => {
-    if (selected === false) {
+    if (selected.selected == false) {
       setSelected({ selected: true });
       console.log(selected);
     }
-    if (selected === true) {
+    if (selected.selected == true) {
       setSelected({ selected: false });
       console.log(selected);
     }
