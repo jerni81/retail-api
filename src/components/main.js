@@ -5,10 +5,12 @@ import axios from 'axios'
 
 function Main() {
   const [go, setGO] = useState({go: true})
-  const [show, setShow] = useState({show :''})
+  const [show, setShow] = useState({show:''})
   const [scotland, setScotland] = useState('')
   const [japan, setJapan] = useState('')
+  const [selected, setSelected] = useState({selected: false})
 
+// API call
   const getData = async() => {
     const data = await axios.get('https://cors-anywhere.herokuapp.com/https://whiskyhunter.net/api/distilleries_info/')
     const list = data.data.map((d,i) => {
@@ -16,6 +18,8 @@ function Main() {
         let jDistillery = {
           name: d.name,
           country: d.country,
+          rating: d.whiskybase_rating,
+          whiskies: d.whiskybase_whiskies,
           key: i
         }
         setJapan(japan => [...japan, jDistillery])
@@ -23,6 +27,8 @@ function Main() {
         let sDistillery = {
           name: d.name,
           country: d.country,
+          rating: d.whiskybase_rating,
+          whiskies: d.whiskybase_whiskies,
           key: i
         }
         setScotland(scotland => [...scotland, sDistillery])
@@ -39,6 +45,7 @@ function Main() {
     }
   }, [go.go])
 
+// Rendering List in View
   const shwList = () => {
     if (japan === '') {
       return (
@@ -58,9 +65,12 @@ function Main() {
       return (
         japan && japan.map((d,i) => {
           return (
-            <div className="listItem" key={i}>
+            <div id={selected ? null : "selectedItem"} className="listItem" key={i}>
               <h4>{d.name}</h4>
               {d.country}
+              <button onClick={shwSelected}>
+                Select
+              </button>
             </div>
           )
         })
@@ -69,9 +79,12 @@ function Main() {
       return (
         scotland && scotland.map((d,i) => {
           return (
-            <div className="listItem" key={i}>
+            <div id={selected ? null : "selectedItem"} className="listItem" key={i}>
               <h4>{d.name}</h4>
               {d.country}
+              <button onClick={shwSelected}>
+                Select
+              </button>
             </div>
           )
         })
@@ -82,15 +95,25 @@ function Main() {
   const shwJapan = () => {
     setShow({show:'japan'})
   }
-
   const shwScotland = () => {
     setShow({show:'scotland'})
+  }
+
+  // Rendering selected items
+  const shwSelected = () => {
+    if (selected === false) {
+      setSelected({selected: true})
+      console.log(selected);
+    } if (selected === true) {
+      setSelected({selected: false})
+      console.log(selected);
+    }
   }
 
   return (
     <div className="main">
       <SideBar shwJapan={()=>shwJapan()} shwScotland={()=>shwScotland()}/>
-      <View shwList={shwList()}/>
+      <View shwList={shwList()} shwSelected={shwSelected}/>
     </div>
   );
 }
