@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function SideBar(props) {
-
   return (
-
     <div className="sidebar">
       <h4>Which country would you like your scotch from?</h4>
       <button onClick={props.shwJapan}>Japan</button>
