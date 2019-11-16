@@ -15,6 +15,10 @@
   margin-bottom: 10vh;
 }
 
+button {
+  margin: 20px;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -40,19 +44,34 @@
   flex-direction: column;
   align-items: center;
   width: 200px;
-  height: auto;
   background-color: grey;
   margin: 10px;
   padding: 10px;
 }
 
-#selectedItem {
+.selectedItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80vw;
-  height: 70vh;
+  justify-content: center;
   background-color: white;
+  height: 70vh;
+  width: 80vw;
+  border: 1px solid black;
+  position: fixed;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.noShow {
+  display:none;
 }
 
 .footer {

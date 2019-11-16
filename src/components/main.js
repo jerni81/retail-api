@@ -8,7 +8,7 @@ function Main() {
   const [show, setShow] = useState({ show: "" });
   const [scotland, setScotland] = useState("");
   const [japan, setJapan] = useState("");
-  const [selected, setSelected] = useState({ selected: false });
+  const [selected, setSelected] = useState({ name: "" });
 
   // API call
   const getData = async () => {
@@ -70,13 +70,16 @@ function Main() {
         japan.map((d, i) => {
           return (
             <div
-              id={selected ? null : "selectedItem" }
-              className="listItem"
+              className={selected.name === d.name ? "selectedItem" : "listItem" }
               key={i}
             >
-              <h4>{d.name}</h4>
-              {d.country}
-              <button onClick={shwSelected}>Select</button>
+              <h3>{d.name}</h3>
+              <h5>{d.country}</h5>
+              <div className={selected.name === d.name? "show" : "noShow"}>
+                <b>Rating: {d.rating}</b>
+                <b># of Whiskies: {d.whiskies}</b>
+              </div>
+              <button onClick={(event) => shwSelected(event, d.name)}>{selected.name === d.name ? "Go Back" : "Select" }</button>
             </div>
           );
         })
@@ -88,13 +91,16 @@ function Main() {
         scotland.map((d, i) => {
           return (
             <div
-              id={selected ? null : "selectedItem"}
-              className="listItem"
+              className={selected.name === d.name ? "selectedItem" : "listItem" }
               key={i}
             >
-              <h4>{d.name}</h4>
-              {d.country}
-              <button onClick={shwSelected}>Select</button>
+              <h3>{d.name}</h3>
+              <h5>{d.country}</h5>
+              <div className={selected.name === d.name ? "show" : "noShow"}>
+                <b>Rating: {d.rating}</b>
+                <b># of Whiskies: {d.whiskies}</b>
+              </div>
+              <button onClick={(event) => shwSelected(event, d.name)}>{selected.name === d.name ? "Go Back" : "Select" }</button>
             </div>
           );
         })
@@ -110,14 +116,15 @@ function Main() {
   };
 
   // Rendering selected items
-  const shwSelected = () => {
-    if (selected.selected == false) {
-      setSelected({ selected: true });
-      console.log(selected);
+  const shwSelected = (event, d) => {
+    event.preventDefault();
+    if (selected.name === "") {
+      setSelected({ name: d });
+      console.log(selected.name);
     }
-    if (selected.selected == true) {
-      setSelected({ selected: false });
-      console.log(selected);
+    if (selected.name === d ) {
+      setSelected({ name: "" });
+      console.log(selected.name);
     }
   };
 
