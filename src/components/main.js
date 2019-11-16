@@ -120,11 +120,12 @@ function Main() {
     event.preventDefault();
     if (selected.name === "") {
       setSelected({ name: d });
-      console.log(selected.name);
     }
     if (selected.name === d ) {
       setSelected({ name: "" });
-      console.log(selected.name);
+    }
+    if (selected.name !== d && selected.name !== "") {
+      setSelected({ name: d })
     }
   };
 
