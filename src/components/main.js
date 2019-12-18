@@ -70,7 +70,7 @@ function Main() {
         japan.map((d, i) => {
           return (
             <div
-              className={selected.name === d.name ? "selectedItem" : "listItem" }
+              className={selected.name === d.name ? "selectedItem" : "listItem safari_only" }
               key={i}
             >
               <h3>{d.name}</h3>
@@ -91,7 +91,7 @@ function Main() {
         scotland.map((d, i) => {
           return (
             <div
-              className={selected.name === d.name ? "selectedItem" : "listItem" }
+              className={selected.name === d.name ? "selectedItem" : "listItem safari_only" }
               key={i}
             >
               <h3>{d.name}</h3>

@@ -1,5 +1,4 @@
 
-
 /* Actual Styling */
 
 .header {
@@ -53,6 +52,14 @@ button {
   margin: 10px;
   padding: 10px;
 }
+
+@media not all and (min-resolution:.001dpcm) { @media {
+
+    .safari_only {
+      padding-bottom: 200px;
+
+    }
+}}
 
 .selectedItem {
   display: flex;
