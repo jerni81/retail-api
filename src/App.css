@@ -8,7 +8,7 @@
   height: 20vh;
   position: fixed;
   top: 0;
-  background-color: black;
+  background-color: grey;
 }
 
 .main {
@@ -29,7 +29,7 @@ button {
   text-align: center;
   width: 20vw;
   height: inherit;
-  background-color: tan;
+  background-color: grey;
 }
 
 .view {
