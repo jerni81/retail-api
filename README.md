@@ -1,5 +1,4 @@
 <h1>Project Overview</h1>
-<hr>
 <h3>Link</h3>
 <a href="http://scotch-site.surge.sh/">Scotch-Site</a>
 <hr>
